@@ -12,14 +12,17 @@ jobs:
     - name: fetch ungoogled chromium
       run: wget https://github.com/ungoogled-software/ungoogled-chromium-macos/releases/download/126.0.6478.182-1.1/ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg
    
-    - name: compress ungoogled chromium
-      run: |
-        brew install zstd
-        tar c ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg > ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar
-        zstd -19 ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar
+    - name: update zstd
+      run: brew install zstd
+
+    - name: compress ungoogled chromium with tar
+      run: tar cf ./ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg
+
+    - name: compress ungoogled chromium with zstd
+      run: zstd -19 ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar
 
     - name: upload
-      uses: actions/upload-artifact@v4.3.4
+      uses: actions/upload-artifact@v4
       with:
         name: ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos
         path: ./ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar.zst
