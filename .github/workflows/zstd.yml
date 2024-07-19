@@ -16,11 +16,12 @@ jobs:
       run: |
         brew install zstd
         tar c ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg > ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar
-        zstd -9 ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar
+        zstd -19 ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar
 
     - name: upload
       uses: actions/upload-artifact@v4.3.4
       with:
+        name: ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos
         path: ./ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar.zst
      
    
