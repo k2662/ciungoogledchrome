@@ -24,7 +24,7 @@ jobs:
     - name: upload
       uses: actions/upload-artifact@v4
       with:
-        name: ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.tar.zst
+        compression-level: 9
         path: ./ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg.tar.zst
      
    
