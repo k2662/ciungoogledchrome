@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: fetch ungoogled chromium
-      run: wget https://github.com/ungoogled-software/ungoogled-chromium-macos/releases/download/126.0.6478.182-1.1/ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg
+      run: curl -O https://github.com/ungoogled-software/ungoogled-chromium-macos/releases/download/126.0.6478.182-1.1/ungoogled-chromium_126.0.6478.182-1.1_x86-64-macos.dmg
    
     - name: update zstd
       run: brew install zstd
